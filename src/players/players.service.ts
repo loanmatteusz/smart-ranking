@@ -1,9 +1,10 @@
 import { BadRequestException, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+
+import { Player } from './interfaces/player.interface';
 
 import { CreatePlayerDto } from './dtos/create-player.dto';
-import { Player } from './interfaces/player.interface';
-import { Model } from 'mongoose';
 import { UpdatePlayerDto } from './dtos/update-player.dto';
 
 
