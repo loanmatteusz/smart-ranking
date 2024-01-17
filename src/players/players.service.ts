@@ -21,7 +21,7 @@ export class PlayersService {
 
   async createPlayer(createPlayerDto: CreatePlayerDto): Promise<Player> {
     const { email } = createPlayerDto;
-    const playerAlreadyExist = await this.playerModel.findOne({ email }).exec();
+    const playerAlreadyExist = await this.playerModel.findOne({ email });
     if (playerAlreadyExist) {
       throw new BadRequestException(`Player with email ${email} already exist!`);
     }
@@ -31,21 +31,21 @@ export class PlayersService {
   
 
   async updatePlayer(id: string, updatePlayerDto: UpdatePlayerDto): Promise<void> {
-    const playerAlreadyExist = await this.playerModel.findOne({ _id: id }).exec();
+    const playerAlreadyExist = await this.playerModel.findOne({ _id: id });
     if (!playerAlreadyExist) {
       throw new NotFoundException(`Player with id ${id} not found!`);
     }
-    await this.playerModel.findOneAndUpdate({ _id: id }, { $set: updatePlayerDto }).exec();
+    await this.playerModel.findOneAndUpdate({ _id: id }, { $set: updatePlayerDto });
   }
 
 
   async findPlayers(): Promise<Array<Player>> {
-    return await this.playerModel.find().exec();
+    return await this.playerModel.find();
   }
 
 
   async findPlayerById(id: string): Promise<Player> {
-    const playerAlreadyExist = await this.playerModel.findOne({ _id: id }).exec();
+    const playerAlreadyExist = await this.playerModel.findOne({ _id: id });
     if (!playerAlreadyExist) {
       throw new NotFoundException(`Player with id: ${id} not found!`);
     }
@@ -54,11 +54,11 @@ export class PlayersService {
 
 
   async delete(id: string): Promise<void> {
-    const playerAlreadyExist = await this.playerModel.findOne({ _id: id }).exec();
+    const playerAlreadyExist = await this.playerModel.findOne({ _id: id });
     if (!playerAlreadyExist) {
       throw new NotFoundException(`Player with id: ${id} not found!`);
     }
-    await this.playerModel.deleteOne({ _id: id }).exec();
+    await this.playerModel.deleteOne({ _id: id });
   }
 
 }
