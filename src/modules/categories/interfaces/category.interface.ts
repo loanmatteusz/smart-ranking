@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import { Player } from "src/players/interfaces/player.interface";
+import { Player } from "src/modules/players/interfaces/player.interface";
 
 
 export interface Event {

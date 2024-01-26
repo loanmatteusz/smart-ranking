@@ -9,7 +9,7 @@ import {
   UsePipes,
   ValidationPipe
 } from '@nestjs/common';
-import { ParamValidation } from 'src/common/pipes/param-validation.pipe';
+import { ParamValidation } from 'src/modules/common/pipes/param-validation.pipe';
 import { Player } from './interfaces/player.interface';
 import { PlayersService } from './players.service';
 import { CreatePlayerDto } from './dtos/create-player.dto';
